@@ -15,6 +15,12 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "seed";
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
 }
 
 ::-webkit-scrollbar {
@@ -33,6 +39,7 @@
 
 .Home{
     position: relative;
+    padding-bottom: 30px;
 
     .box{
         width: 100px;
@@ -53,8 +60,9 @@
 
         .firstpost{
             position: relative;
-            width: 85%;
-            margin-left: 30px;
+            padding: 0 ;
+            margin: 0 auto;
+            width: 80vw;
             height: 80vh;
 
             >img{
@@ -97,7 +105,8 @@
 
             >div{
                 height: 290px;
-                background-color: #fff;
+                background-color: #000;
+                box-shadow: 0 0 10px #ffffff40;
                 padding: 10px;
 
                 >img{
@@ -107,8 +116,18 @@
                 }
 
                 >div{
-                    border: 1px solid red;
+                    color: #fff;
                     height: 40%;
+
+                    >p{
+                        height: 66px;
+                        padding-top: 10px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient:vertical;
+                    }
                 }
             }
         }
@@ -118,12 +137,14 @@
 //!style component Header
 
 .Header{
+    position: relative;
     height: 80px;
     background: #00000094;
+    display: flex;
+    align-items: center;
 
     .logo_Header{
         padding: 0 30px;
-        cursor: pointer;
 
         >span{
             font-size: 40px;
@@ -135,5 +156,45 @@
         >span:nth-of-type(2){
             color: #fff;
         }
+    }
+
+    >nav{
+        color: #fff;
+
+        >ul{
+            display: flex;
+            column-gap: 15px;
+
+            >li{
+                cursor: pointer;
+            }
+        }
+    }
+
+    >form{
+        position: absolute;
+        right: 30px;
+        width: 240px;
+        height: 30px;
+        overflow: hidden;
+        border-radius: 20px;
+        display: flex;
+        
+
+        >input{
+            padding-left: 10px;
+            width: 80%;
+            border: none;
+        }
+        >input:focus{
+            outline: none;
+        }
+
+        button{
+            border: none;
+            cursor: pointer;
+            flex-grow: 1;
+        }
+            
     }
 }
