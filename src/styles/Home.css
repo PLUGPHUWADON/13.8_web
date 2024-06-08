@@ -165,4 +165,12 @@ a {
   border: none;
   cursor: pointer;
   flex-grow: 1;
+}
+
+footer {
+  color: #fff;
+  font-size: small;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }/*# sourceMappingURL=Home.css.map */
