@@ -179,7 +179,6 @@ a {
   flex-grow: 1;
 }
 
-<<<<<<< HEAD
 @media screen and (max-width: 700px) {
   .Home .firstpost > div h2 {
     font-size: 26px !important;
@@ -201,12 +200,4 @@ a {
     width: 100%;
     border-radius: 0;
   }
-=======
-footer {
-  color: #fff;
-  font-size: small;
-  display: flex;
-  justify-content: center;
-  align-items: center;
->>>>>>> bfc9cd57bf6214b55f4afeffc95f73d2b475ff7e
 }/*# sourceMappingURL=Home.css.map */
