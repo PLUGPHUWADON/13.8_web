@@ -1,0 +1,103 @@
+.All {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+.All .bg_Detail {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-image: url("../assets/cosmos-1853491_1920.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: brightness(30%);
+}
+.All section {
+  margin-top: 30px;
+  padding: 0 10px;
+  overflow-y: scroll;
+}
+.All section .load {
+  margin: 20px auto;
+  width: 30px;
+  height: 30px;
+  border: 4px solid #fff;
+  border-left: 4px solid transparent;
+  border-radius: 100px;
+}
+.All section .pagination5 {
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+.All section .pagination5 a {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  background-color: #fff;
+  color: #000;
+  border-radius: 2px;
+  display: grid;
+  place-items: center;
+}
+.All section .pagination5 .active > a {
+  background-color: #fc6736 !important;
+  color: #fff;
+}
+.All section .pagination5 .previous {
+  display: none;
+}
+.All section .pagination5 .next {
+  display: none;
+}
+.All section .item {
+  background-color: rgba(0, 0, 0, 0.7882352941);
+  padding: 10px;
+  height: 200px;
+  display: flex;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+.All section .item > div:nth-of-type(1) {
+  flex-shrink: 0;
+  width: 200px;
+}
+.All section .item > div:nth-of-type(1) > img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.All section .item > div:nth-of-type(2) {
+  flex-grow: 1;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.All section .item > div:nth-of-type(2) > h2 {
+  font-size: 20px;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.All section .item > div:nth-of-type(2) > p {
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 570px) {
+  .All .item {
+    margin-top: 30px;
+    height: 150px !important;
+  }
+  .All .item > div:nth-of-type(2) > p {
+    font-size: 13px;
+  }
+}/*# sourceMappingURL=All.css.map */

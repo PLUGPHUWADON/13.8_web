@@ -1,0 +1,75 @@
+.Search {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+.Search .bg_Detail {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-image: url("../assets/cosmos-1853491_1920.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: brightness(30%);
+}
+.Search > section {
+  padding: 0 10px;
+  overflow-y: scroll;
+}
+.Search > section .load {
+  margin: 20px auto;
+  width: 30px;
+  height: 30px;
+  border: 4px solid #fff;
+  border-left: 4px solid transparent;
+  border-radius: 100px;
+}
+.Search > section .item {
+  background-color: rgba(0, 0, 0, 0.7882352941);
+  padding: 10px;
+  height: 200px;
+  display: flex;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+.Search > section .item > div:nth-of-type(1) {
+  flex-shrink: 0;
+  width: 200px;
+}
+.Search > section .item > div:nth-of-type(1) > img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.Search > section .item > div:nth-of-type(2) {
+  flex-grow: 1;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.Search > section .item > div:nth-of-type(2) > h2 {
+  font-size: 20px;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.Search > section .item > div:nth-of-type(2) > p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+@media screen and (max-width: 570px) {
+  .Search .item {
+    margin-top: 30px;
+    height: 150px !important;
+  }
+  .Search .item > div:nth-of-type(2) > p {
+    font-size: 13px;
+  }
+}/*# sourceMappingURL=Search.css.map */

@@ -1,11 +1,13 @@
 import { useState,useRef } from 'react';
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import {gsap} from 'gsap';
 import { useGSAP } from '@gsap/react';
 
 export default function Header() {
+    const [inputsearch,setinputsearch] = useState("");
     const headerani = useRef(null);
     const logoani = useRef(null);
+    const navigate = useNavigate();
 
     useGSAP(() => {
             gsap.from(headerani.current, {
@@ -21,6 +23,15 @@ export default function Header() {
         }
     );
 
+    const submitSearch = (e) => {
+        if (inputsearch != "") {
+            navigate("/search/" + inputsearch);
+        }
+        else {
+            e.preventDefault();
+        }
+    }
+
     return(
         <header ref={headerani} className="Header">
             <Link to="/">
@@ -28,12 +39,12 @@ export default function Header() {
             </Link>
             <nav>
                 <ul>
-                    <li><Link>หน้าแรก</Link></li>
-                    <li>ดาวทั้งหมด</li>
+                    <li><Link to="/">หน้าแรก</Link></li>
+                    <li><Link to="/all/1">ดาวทั้งหมด</Link></li>
                 </ul>
             </nav>
-            <form>
-                <input type="text" placeholder="ค้นหา" />
+            <form onSubmit={submitSearch}>
+                <input type="text" placeholder="ค้นหา" onChange={e => setinputsearch(e.target.value)} />
                 <button type="submit"><i className="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </header>

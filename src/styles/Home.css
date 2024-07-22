@@ -32,7 +32,9 @@ a {
 
 .Home {
   position: relative;
-  padding-bottom: 30px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 .Home .box {
   width: 100px;
@@ -45,7 +47,11 @@ a {
   background-image: url("../assets/cosmos-1853491_1920.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  filter: brightness(50%);
+  filter: brightness(30%);
+}
+.Home > section {
+  overflow-y: scroll;
+  flex-grow: 1;
 }
 .Home > section .firstpost {
   position: relative;
@@ -54,7 +60,7 @@ a {
   width: 80vw;
   height: 80vh;
 }
-.Home > section .firstpost > img {
+.Home > section .firstpost img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -65,15 +71,15 @@ a {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 15vh;
+  height: auto;
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.8823529412);
   color: #fff;
 }
-.Home > section .firstpost > div > h2 {
+.Home > section .firstpost > div h2 {
   font-size: 35px;
 }
-.Home > section .firstpost > div > p {
+.Home > section .firstpost > div p {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -82,29 +88,28 @@ a {
   width: 100%;
   margin-top: 30px;
   padding: 0 30px;
+  padding-bottom: 30px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 370px);
+  grid-template-columns: repeat(auto-fit, 350px);
   justify-content: center;
   gap: 10px;
 }
-.Home > section .subpost > div {
-  height: 290px;
+.Home > section .subpost > a > div {
+  height: 260px;
   background-color: #000;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2509803922);
   padding: 10px;
+  margin-bottom: 30px;
 }
-.Home > section .subpost > div > img {
+.Home > section .subpost > a > div > img {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
-  height: 60%;
+  height: 70%;
 }
-.Home > section .subpost > div > div {
+.Home > section .subpost > a > div > div {
   color: #fff;
-  height: 40%;
 }
-.Home > section .subpost > div > div > p {
-  height: 66px;
+.Home > section .subpost > a > div > div > p {
   padding-top: 10px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -113,9 +118,14 @@ a {
   -webkit-box-orient: vertical;
 }
 
+.addhidcontent {
+  display: none !important;
+}
+
 .Header {
   position: relative;
   height: 80px;
+  z-index: 10;
   background: rgba(0, 0, 0, 0.5803921569);
   display: flex;
   align-items: center;
@@ -155,6 +165,7 @@ a {
 }
 .Header > form > input {
   padding-left: 10px;
+  background-color: #fff;
   width: 80%;
   border: none;
 }
@@ -163,6 +174,30 @@ a {
 }
 .Header > form button {
   border: none;
+  background-color: #f0f0f0;
   cursor: pointer;
   flex-grow: 1;
+}
+
+@media screen and (max-width: 700px) {
+  .Home .firstpost > div h2 {
+    font-size: 26px !important;
+  }
+}
+@media screen and (max-width: 570px) {
+  .Home .firstpost {
+    height: 60vh !important;
+  }
+  .Home .firstpost > div h2 {
+    font-size: 20px !important;
+  }
+  .Home > section {
+    padding-top: 60px;
+  }
+  .Header > form {
+    bottom: -30px;
+    right: 0;
+    width: 100%;
+    border-radius: 0;
+  }
 }/*# sourceMappingURL=Home.css.map */

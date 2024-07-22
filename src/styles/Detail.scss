@@ -1,0 +1,63 @@
+.Detail{
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    
+    .bg_Detail{
+        position: absolute;
+        z-index: -1;
+        inset: 0;
+        background-image: url("../assets/cosmos-1853491_1920.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: brightness(30%);
+    }
+
+    >section{
+        flex-grow: 1;
+        padding: 30px 10vw;
+        color: #fff;
+        overflow-y: scroll;
+
+        .load{
+            margin: 20px auto;
+            width: 30px;
+            height: 30px;
+            border: 4px solid #fff;
+            border-left: 4px solid transparent;
+            border-radius: 100px;
+        }
+
+        >p{
+            margin-top: 30px;
+        }
+
+        div{
+            display: block;
+            margin: 0 auto;
+            max-width: 600px;
+            column-count: 1;
+            margin-top: 30px;
+
+            >img{
+                width: 100%;
+            }
+
+            >iframe{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .Detail{
+
+        >section{
+            padding-top: 60px;
+        }
+    }
+}
