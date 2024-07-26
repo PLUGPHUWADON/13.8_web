@@ -31,7 +31,7 @@
 .Detail > section > p {
   margin-top: 30px;
 }
-.Detail > section div {
+.Detail > section .showdetailimg_video {
   display: block;
   margin: 0 auto;
   max-width: 600px;
@@ -39,12 +39,48 @@
        column-count: 1;
   margin-top: 30px;
 }
-.Detail > section div > img {
+.Detail > section .showdetailimg_video > img {
   width: 100%;
 }
-.Detail > section div > iframe {
+.Detail > section .showdetailimg_video > iframe {
   width: 100%;
   height: 100%;
+}
+.Detail > section .offer {
+  margin-top: 50px;
+}
+.Detail > section .offer .boxitem {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 350px);
+  justify-content: center;
+  gap: 10px;
+}
+.Detail > section .offer .boxitem .item {
+  height: 260px;
+  padding: 10px;
+  background-color: #000;
+  margin-bottom: 20px;
+}
+.Detail > section .offer .boxitem .item > img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 70%;
+}
+.Detail > section .offer .boxitem .item > div > h3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.Detail > section .offer .boxitem .item > div > p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 @media screen and (max-width: 570px) {

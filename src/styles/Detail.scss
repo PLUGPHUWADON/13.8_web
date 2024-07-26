@@ -34,7 +34,7 @@
             margin-top: 30px;
         }
 
-        div{
+        .showdetailimg_video{
             display: block;
             margin: 0 auto;
             max-width: 600px;
@@ -48,6 +48,50 @@
             >iframe{
                 width: 100%;
                 height: 100%;
+            }
+        }
+
+        .offer{
+            margin-top: 50px;
+
+            .boxitem{
+                margin-top: 30px;
+                display: grid;
+                grid-template-columns: repeat(auto-fit,350px);
+                justify-content: center;
+                gap: 10px;
+
+                .item{
+                    height: 260px;
+                    padding: 10px;
+                    background-color: #000;
+                    margin-bottom: 20px;
+
+                    >img{
+                        object-fit: cover;
+                        width: 100%;
+                        height: 70%;
+                    }
+
+                    >div{
+                        
+                        >h3{
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 1;
+                            -webkit-box-orient:vertical;
+                        }
+    
+                        >p{
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 1;
+                            -webkit-box-orient:vertical;
+                        }
+                    }
+                }
             }
         }
     }

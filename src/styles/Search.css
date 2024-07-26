@@ -72,4 +72,9 @@
   .Search .item > div:nth-of-type(2) > p {
     font-size: 13px;
   }
+}
+@media screen and (max-width: 375px) {
+  .Search .item > div:nth-of-type(1) {
+    width: 150px !important;
+  }
 }/*# sourceMappingURL=Search.css.map */

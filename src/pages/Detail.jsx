@@ -1,5 +1,5 @@
 import { useState,useRef,useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams,Link } from 'react-router-dom';
 import {gsap} from 'gsap';
 import { useGSAP } from '@gsap/react';
 import axios from "axios";
@@ -7,7 +7,9 @@ import "../styles/Detail.css";
 import Header from "../components/Header";
 
 export default function Detail() {
+    const [state,setstate] = useState(false);
     const [data,setdata] = useState([]);
+    const [dataoffer,setdataoffer] = useState([]);
     const [showdata,setshowdata] = useState([]);
     const [checkwait,setcheckwait] = useState(false);
     const sectionani = useRef(null);
@@ -48,6 +50,16 @@ export default function Detail() {
         loadData();
     },[]);
 
+    useEffect(() => {
+        const loadDataOffer = async () => {
+            const response = await axios.get(url + "/offer/" + param.id);
+            if (response.status == 200) {
+                setdataoffer([...response.data]);
+            }
+        }
+        loadDataOffer();
+    },[]);
+
     //!
 
     //!show data
@@ -64,10 +76,10 @@ export default function Detail() {
                     arr.push(<p key={key + 20}>{e.des}</p>);
                 }
                 if (e.data != "" && e.data != undefined) {
-                    arr.push(<div key={key + 30}><img src={`data:images/${e.typeimg};base64,${e.data}`} alt="" /></div>);
+                    arr.push(<div className="showdetailimg_video" key={key + 30}><img src={`data:images/${e.typeimg};base64,${e.data}`} alt="" /></div>);
                 }
                 if (e.url != "" && e.url != undefined) {
-                    arr.push(<div key={key + 40}><iframe src={e.url} frameBorder="0"></iframe></div>);
+                    arr.push(<div className="showdetailimg_video" key={key + 40}><iframe src={e.url} frameBorder="0"></iframe></div>);
                 }
             });
 
@@ -75,6 +87,16 @@ export default function Detail() {
         }
         catch{}
     },[data]);
+
+    //!
+
+    //!reload page
+
+    const reLoad = () => {
+        setTimeout(() => {
+            window.location.reload();
+        },100);
+    }
 
     //!
 
@@ -87,15 +109,22 @@ export default function Detail() {
                 {showdata.map(e => (
                     e
                 ))}
-                {/* <h1>Quo, voluptatibus hic sint aliquid porro expedita laudantium repellendus neque distinctio. Fuga nam qui a?</h1>
-                <p>หลังจากยาน Mars Pathfinder สามารถลงจอดบนดาวอังคารได้สำเร็จโดยใช้งบประมาณที่น้อยกว่าโครงการ Viking ทั้งโครงการ 15 เท่า โครงการ Mars Surveyor ’98 โครงการสำรวจดาวอังคารที่ทะเยอทะยานของ NASA ที่มียานสำรวจทั้งสามลำคือ Mars Climate Orbiter, Mars Polar Lander และ Deep Space 2 ภารกิจทั้งสามจะเป็นตัวพิสูจน์ว่านโยบายการดำเนินงานแบบรัดเข็มขัดของ NASA ในเวลานั้นประสบความสำเร็จและสมควรที่จะดำเนินการต่อ ซึ่งไม่นานหลังจากที่ยานทั้งสามลำเดินทางมาถึงดาวอังคาร NASA ก็สูญเสียยานอวกาศทั้งสามลำโดยที่ไม่ทันได้เริ่มต้นภารกิจของพวกมันด้วยซ้ำ</p>
-                <div>
-                    <img src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1500w,f_auto,q_auto:best/newscms/2018_22/1254611/151007-pluto-mn-1525.jpg" alt="" />
+                <div className="offer">
+                    <h2>แนะนำ</h2>
+                    <div className="boxitem">
+                        {dataoffer.map((e,key) => (
+                            <Link onClick={reLoad} to={"/detail/" + e.post_id} key={key}>
+                                <div className="item">
+                                    <img src={`data:images/${e.typeimg};base64,${e.data}`} alt="" />
+                                    <div>
+                                        <h3>{e.title}</h3>
+                                        <p>{e.description}</p>
+                                    </div>
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
                 </div>
-                <div>
-                    <img src="https://images.nationalgeographic.org/image/upload/t_edhub_resource_key_image/v1638886434/EducationHub/photos/venus.jpg" alt="" />
-                </div>
-                <p>หลังจากยาน Mars Pathfinder สามารถลงจอดบนดาวอังคารได้สำเร็จโดยใช้งบประมาณที่น้อยกว่าโครงการ Viking ทั้งโครงการ 15 เท่า โครงการ Mars Surveyor ’98 โครงการสำรวจดาวอังคารที่ทะเยอทะยานของ NASA ที่มียานสำรวจทั้งสามลำคือ Mars Climate Orbiter, Mars Polar Lander และ Deep Space 2 ภารกิจทั้งสามจะเป็นตัวพิสูจน์ว่านโยบายการดำเนินงานแบบรัดเข็มขัดของ NASA ในเวลานั้นประสบความสำเร็จและสมควรที่จะดำเนินการต่อ ซึ่งไม่นานหลังจากที่ยานทั้งสามลำเดินทางมาถึงดาวอังคาร NASA ก็สูญเสียยานอวกาศทั้งสามลำโดยที่ไม่ทันได้เริ่มต้นภารกิจของพวกมันด้วยซ้ำ</p> */}
             </section>
         </main>
     );

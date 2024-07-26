@@ -88,3 +88,15 @@
         }
     }
 }
+
+@media screen and (max-width: 375px) {
+    .Search{
+
+        .item{
+    
+            >div:nth-of-type(1){
+                width: 150px !important;
+            }
+        }
+    }
+}
