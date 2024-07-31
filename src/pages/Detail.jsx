@@ -12,6 +12,7 @@ export default function Detail() {
     const [dataoffer,setdataoffer] = useState([]);
     const [showdata,setshowdata] = useState([]);
     const [checkwait,setcheckwait] = useState(false);
+    const [reloadgoback,setreloadgoback] = useState(true);
     const sectionani = useRef(null);
     const waitani = useRef(null);
     const param = useParams();
@@ -97,6 +98,16 @@ export default function Detail() {
             window.location.reload();
         },100);
     }
+
+    useEffect(() => {
+        window.onpopstate = () => {
+          if (reloadgoback) {
+            setTimeout(() => {
+                window.location.reload();
+            },100);
+          }
+        }
+    },[reloadgoback]);
 
     //!
 
