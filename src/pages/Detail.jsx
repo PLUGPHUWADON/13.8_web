@@ -17,7 +17,6 @@ export default function Detail() {
     const waitani = useRef(null);
     const param = useParams();
     const url = "http://localhost:3000";
-    //const url = "https://backend13point8.thirteenpointeight.com";
 
     //!animation
 
