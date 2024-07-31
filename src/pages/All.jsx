@@ -16,7 +16,6 @@ export default function All() {
     const navigate = useNavigate();
     const param = useParams();
     const url = "http://localhost:3000";
-    //const url = "https://backend13point8.thirteenpointeight.com";
 
     //!play animation
 
