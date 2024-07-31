@@ -12,7 +12,6 @@ export default function Home() {
     const secsionani  = useRef(null);
     const loadpageref = useRef("");
     const url = "http://localhost:3000";
-    //const url = "https://backend13point8.thirteenpointeight.com";
 
     //!play animation
 
